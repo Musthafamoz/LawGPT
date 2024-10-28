@@ -1,0 +1,183 @@
+/* CSS Variables for consistent theming */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --background-color: #f9f9f9;
+  --border-color: #e0e0e0;
+  --user-message-bg: #d1e7dd;
+  --bot-message-bg: #f8d7da;
+  --text-color: #333;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-color);
+}
+
+/* Chat container with improved scrollbar */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  height: 680px;
+  overflow-y: auto;
+  background-color: var(--background-color);
+  box-shadow: var(--shadow);
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+}
+
+/* Message styling */
+.message {
+  display: flex;
+  margin: 0.75rem 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* User message */
+.user-message {
+  align-self: flex-end;
+  background-color: var(--user-message-bg);
+  padding: 1rem;
+  border-radius: 18px 18px 0 18px;
+  max-width: 80%;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+/* Bot message */
+.bot-message {
+  align-self: flex-start;
+  background-color: var(--bot-message-bg);
+  padding: 1rem;
+  border-radius: 18px 18px 18px 0;
+  max-width: 80%;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+/* Question section */
+.Question {
+  width: 100%;
+  display: flex;
+  margin-top: 1.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.question-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Input styling */
+.qinput {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.qinput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Button styling */
+button {
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+  
+  .chat-container {
+    height: 500px;
+  }
+  
+  .user-message,
+  .bot-message {
+    max-width: 90%;
+  }
+  
+  .question-input {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
+
+.loading-indicator {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
